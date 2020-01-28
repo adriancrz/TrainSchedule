@@ -14,20 +14,21 @@ var pokeTrainTime = $("#train-time").mask("00:00");
 var pokeTimeFreq = $("#time-freq").mask("00");
 
 //Firebase
-var firebaseConfig = {
-    apiKey: "AIzaSyBJYhhPpEbGWRsT8NeYyJ8A9eGEgiI81cM",
-    authDomain: "trainschedule-3aa39.firebaseapp.com",
-    databaseURL: "https://trainschedule-3aa39.firebaseio.com",
-    projectId: "trainschedule-3aa39",
-    storageBucket: "trainschedule-3aa39.appspot.com",
-    messagingSenderId: "927638603245"
+var config = {
+    apiKey: "AIzaSyCj_JerI5N2UDAkdgfddYi1NzJ8_pqgwEY",
+    authDomain: "poketrain-fb9a0.firebaseapp.com",
+    databaseURL: "https://poketrain-fb9a0.firebaseio.com",
+    projectId: "poketrain-fb9a0",
+    storageBucket: "poketrain-fb9a0.appspot.com",
+    messagingSenderId: "414977322447",
+    appId: "1:414977322447:web:cb2f3de7f75f9075b5f6ba"
 };
 
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(config);
 
 var database = firebase.database();
 
-database.ref().on("child_added", function(snapshot){
+database.ref("/trains").on("child_added", function(snapshot){
 
     //local varibles to store date from firebase
     var trainDifference = 0;
